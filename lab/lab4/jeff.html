@@ -1,0 +1,256 @@
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"  dir="ltr"   >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>Login - Oracle Access Management 11g</title>
+<link rel='stylesheet' href='/oam/usna/pages/css/login_page.css'/>
+<link rel="stylesheet" type="text/css" href="/oam/usna/pages/css/general.css"/>
+
+<!-- Start Disable frame hijacking Script-->
+<style id="antiClickjack">body { display: none !important; }</style>
+<script type="text/javascript">
+	//Disable frame hijacking 
+    if (self === top) {
+       var antiClickjack = document.getElementById("antiClickjack");
+       antiClickjack.parentNode.removeChild(antiClickjack);
+    } else {
+        top.location = self.location;
+    }
+</script>
+
+<!-- End Disable frame hijacking Script--> 
+
+<!-- START: DoD banner popup-->
+<script type="text/javascript">
+var alertmessage="You are accessing a U.S. Government " +
+   "(USG) Information System (IS) that is provided for " +
+   "USG-authorized use only. \n\nBy using this IS " +
+   "(which includes any device attached to this IS), " +
+   "you consent to the following conditions:\n\n-The " +
+   "USG routinely intercepts and monitors " +
+   "communications on this IS for purposes including, " +
+   "but not limited to, penetration testing, COMSEC " +
+   "monitoring, network operations and defense, " +
+   "personnel misconduct (PM), law enforcement (LE), " +
+   "and counterintelligence (CI) investigations.\n-At " +
+   "any time, the USG may inspect and seize data " +
+   "stored on this IS.\n-Communications using, or data " +
+   "stored on, this IS are not private, are subject to " +
+   "routine monitoring, interception, and search, and " +
+   "may be disclosed or used for any USG-authorized " +
+   "purpose.\n-This IS includes security measures " +
+   "(e.g., authentication and access controls) to " +
+   "protect USG interests--not for your personal " +
+   "benefit or privacy. \n-Notwithstanding the above, " +
+   "using this IS does not constitute consent to PM, " +
+   "LE or CI investigative searching or monitoring " +
+   "of the content of privileged communications, or " +
+   "work product, related to personal representation "  +
+   "or services by attorneys, psychotherapists, or " +
+   "clergy, and their assistants. Such communications " +
+   "and work product are private and confidential. " +
+   "See User Agreement for details. \n\nBY CLICKING " +
+   "\''OK\'' THE USER ACKNOWLEDGES AND AGREES TO " +
+   "FOLLOW THESE POLICIES.";
+alert(alertmessage);
+</script>
+
+<!--   END: DoD banner popup-->
+
+
+
+<style>
+   body {
+      margin: 0;
+      padding:0;
+      font-family: "Helvetica", Helvetica Neue, Helvetica, Arial, sans-serif;
+      }
+   div.header {
+      background: #1e5282;
+      border-top: 5px solid #fbc42b;
+      padding-bottom: 0;
+      padding-top: 5px; display: table;
+      margin:0;
+      width:100%;
+      font-size: 12px;
+      }
+   div.top-row { width: 100%;
+      margin: 0 auto;
+      max-width: 1024px;
+      }
+   div.header .main-name, div.header .app-name {
+      color:#fff; font-weight: bold;
+      font-size: 2em;
+      }
+   div.header .main-name {
+      margin-top:0.8em;
+      }
+   div.header .app-name {
+      font-size: 1.5em;
+      border-top: 5px solid #fbc42b;
+      padding-top: .3em;
+      }
+   div.header .app-name .app-instance{
+      float: right;
+      }
+   div.application {
+      position: relative;
+      float: left;
+      width: 75%;
+      }
+   div.logo {
+      float: right;
+      position: relative;
+      width:25%;
+      }
+   div.logo a {
+      text-decoration: none;
+      }
+   div.logo img {
+      border: none;
+      }
+</style>
+
+<script language="javascript" type="text/javascript">
+<!-- 
+var currentPageLang = 'en';
+var userLanguageArray =  new Array();
+var isError;
+
+// -->
+</script>
+<script language="javascript" type="text/javascript" src="/oam/usna/pages/js/config.js"></script>
+<script language="javascript" type="text/javascript" src="/oam/usna/pages/js/messages.js"></script>
+<script language="javascript" type="text/javascript" src="/oam/usna/pages/js/loginJS.js"></script>
+
+<script language="javascript" type="text/javascript">
+function submitform()
+{
+	
+	 document.loginData.action = "/oam/usna/pages/login.jsp"; 
+	 document.loginData.submit();
+	 document.loginData.action ="/oam/server/auth_cred_submit";
+}
+</script>
+
+</head>
+<body onload="javascript:onBodyLoad();">
+
+
+<div class="header">
+   <div class="top-row">
+      <div class="application">
+         <div class="main-name"> United States Naval Academy </div>
+         <div class="app-name"> 
+            <span>
+Midshipmen Information System (MIDS)
+
+            </span>
+            <div class="app-instance"><span> &nbsp; </span></div>
+         </div>
+      </div>
+      <div class="logo">
+         <div class="logo-img"><img src="/oam/usna/pages/images/logo.png" alt="U.S. Naval Academy" height="137" width="90" /></div>
+      </div>
+   </div>
+</div>
+
+<div Style="position:relative; visibility:show; left:0px; top:0px;z-index:1">
+
+     <div id="top">
+        <div id="login-header">
+        </div>
+        <div id="content" style="min-width:900px">
+            <div id="login">
+                <div id="title"><span> &nbsp; </span></div>
+                <div id="login-form">
+                    <form id="loginData" action="/oam/server/auth_cred_submit" method="post" name="loginData">
+                        <div class="message-row">
+                            <noscript><p class="loginFailed">JavaScript is required. Enable JavaScript to use WebLogic Administration Console.</p></noscript>                                                    
+                          <p>Enter your Username and Password<p>
+                        </div>
+                        
+ 
+                        <div class="input-row">
+                          <table>
+                            <tr><td>
+                             <p> <label style="margin-top:-14px"  for="username">Username:</label></p>
+                            </td>
+                            <td>
+                            <span class="ctrl">
+                            <input type="text" name="username" id="username" class="textinput" />
+                            </span>
+                            </td>
+                            </tr>
+                            </table>
+                        </div>
+                        <div class="input-row">
+                            <table><tr>
+                            <td>
+                          <p> <label style="margin-top:-14px" for="password">Password:</label></p>
+                            </td>
+                            <td>
+                            <span class="ctrl">
+                            <input type="password" name="password" id="password" class="textinput" autocomplete="off"/>
+                            </span>
+                            </td></tr></table>
+                        </div>
+                        
+                        <div class="button-row">
+                            <span class="ctrl">
+                                <input type="submit" value="Login" class="formButton" onclick="this.disabled=true;document.body.style.cursor = 'wait'; this.className='formButton-disabled';form.submit();return false;"/>
+                            </span>
+                            <input type="hidden" name="request_id" value="1962957733581184365">                            
+	                        
+                        </div>
+                        
+
+						<img src="/oam/usna/pages/images/spacer.gif" alt="X" width="5" height="10" />
+
+						<img src="/oam/usna/pages/images/spacer.gif" alt="X" width="5" height="10" />
+
+						<br />
+						<img src="/oam/usna/pages/images/spacer.gif" alt="X" width="5" height="10" />
+						<hr />
+<input type="hidden" name="displayLangSelection" id="displayLangSelectionId" value="false">
+
+						<img src="/oam/usna/pages/images/world_36x20.png" alt="map" name="languages1" id="languages1" class="defaultHidden" width="36" align="bottom" height="20" />
+						<select name="Languages" class="defaultHidden" id="Languages" onchange="javascript:localeSelect(); ">
+						<option value=""> Select Language </option>
+						</select>
+
+						<br />
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>        
+  </body>
+</html>
+<script id="f5_cspm">(function(){var f5_cspm={f5_p:'AHEPDJHEGDAIMOFEOENLCBGHFNPNLCOJAFAHAGDOCEKLPNOJJJDMOKAMPOOIKALJBCGBLOMBAAJJEANPEJEAKLANAAKAAJJJMFCOGFBLJKEIICAEOHCJFMDOFJIAKELJ',setCharAt:function(str,index,chr){if(index>str.length-1)return str;return str.substr(0,index)+chr+str.substr(index+1);},get_byte:function(str,i){var s=(i/16)|0;i=(i&15);s=s*32;return((str.charCodeAt(i+16+s)-65)<<4)|(str.charCodeAt(i+s)-65);},set_byte:function(str,i,b){var s=(i/16)|0;i=(i&15);s=s*32;str=f5_cspm.setCharAt(str,(i+16+s),String.fromCharCode((b>>4)+65));str=f5_cspm.setCharAt(str,(i+s),String.fromCharCode((b&15)+65));return str;},set_latency:function(str,latency){latency=latency&0xffff;str=f5_cspm.set_byte(str,40,(latency>>8));str=f5_cspm.set_byte(str,41,(latency&0xff));str=f5_cspm.set_byte(str,35,2);return str;},wait_perf_data:function(){try{var wp=window.performance.timing;if(wp.loadEventEnd>0){var res=wp.loadEventEnd-wp.navigationStart;if(res<60001){var cookie_val=f5_cspm.set_latency(f5_cspm.f5_p,res);window.document.cookie='f5avr0279180150aaaaaaaaaaaaaaaa_cspm_='+encodeURIComponent(cookie_val)+';path=/;'+'';}
+return;}}
+catch(err){return;}
+setTimeout(f5_cspm.wait_perf_data,100);return;},go:function(){var chunk=window.document.cookie.split(/\s*;\s*/);for(var i=0;i<chunk.length;++i){var pair=chunk[i].split(/\s*=\s*/);if(pair[0]=='f5_cspm'&&pair[1]=='1234')
+{var d=new Date();d.setTime(d.getTime()-1000);window.document.cookie='f5_cspm=;expires='+d.toUTCString()+';path=/;'+';';setTimeout(f5_cspm.wait_perf_data,100);}}}}
+f5_cspm.go();}());</script>
